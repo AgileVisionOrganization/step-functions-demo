@@ -62,7 +62,11 @@ stepFunctions:
         MoveFile: 
           Type: Task
           Resource: moveFile
-          Next: SendEmail
+          Next: Wait10Minutes
+        Wait10Minutes:
+          Type: Wait
+          Seconds: 600
+          Next: SendEmail          
         SendEmail:
           Type: Task
           Resource: sendEmail
